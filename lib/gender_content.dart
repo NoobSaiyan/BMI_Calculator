@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-const labelStyle = TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98));
+import 'constants.dart';
 
 class GenderContent extends StatelessWidget {
   GenderContent({this.icon, this.label});
@@ -11,7 +10,7 @@ class GenderContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, size: 80.0),
+        Icon(icon, size: 70.0),
         SizedBox(height: 8.0),
         Text(label, style: labelStyle)
       ],

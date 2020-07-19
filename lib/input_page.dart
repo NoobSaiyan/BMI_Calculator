@@ -1,22 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'gender_content.dart';
 
-const activeCardBackground = Color(0xFF1D1E33);
-const inactiveCardBackground = Color(0xFF111328);
-const accentColor = Color(0xFFEB1555);
-enum Gender {
-  male,
-  female
-}
+enum Gender { male, female }
+int height = 150;
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
-
   Gender selectedGender;
 
   @override
@@ -26,17 +23,20 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(children: [
               Expanded(
                 child: ReusableCard(
-                  onPress: (){
+                  onPress: () {
                     setState(() {
                       selectedGender = Gender.male;
                     });
                   },
-                  colour: selectedGender == Gender.male ? activeCardBackground : inactiveCardBackground,
+                  colour: selectedGender == Gender.male
+                      ? activeCardBackground
+                      : inactiveCardBackground,
                   cardChild: GenderContent(
                     icon: FontAwesomeIcons.mars,
                     label: 'MALE',
@@ -44,14 +44,15 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
               Expanded(
-
                 child: ReusableCard(
-                  onPress: (){
+                  onPress: () {
                     setState(() {
                       selectedGender = Gender.female;
                     });
                   },
-                  colour: selectedGender == Gender.female ? activeCardBackground : inactiveCardBackground,
+                  colour: selectedGender == Gender.female
+                      ? activeCardBackground
+                      : inactiveCardBackground,
                   cardChild: GenderContent(
                     icon: FontAwesomeIcons.venus,
                     label: 'FEMALE',
@@ -62,6 +63,48 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: labelStyle,
+                  ),
+                  SizedBox(
+                    height: 6.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: numberStyle,
+                      ),
+                      Text(
+                        ' cm',
+                        style: labelStyle,
+                      )
+                    ],
+                  ),
+                  SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0)
+                      ),
+                      child: Slider(
+                          value: height.toDouble(),
+                          min: 120.0,
+                          max: 220.0,
+                          activeColor: Color(0xFFEB1555),
+                          inactiveColor: Color(0xFF8D8E98),
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          }))
+                ],
+              ),
               colour: activeCardBackground,
             ),
           ),
