@@ -7,3 +7,4 @@ const accentColor = Color(0xFFEB1555);
 
 const labelStyle = TextStyle(fontSize: 16.0, color: Color(0xFF8D8E98));
 const numberStyle = TextStyle(fontSize: 45.0, fontWeight: FontWeight.w900);
+const lowerButtonStyle = TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600);
