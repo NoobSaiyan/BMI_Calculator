@@ -19,19 +19,20 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  int height = 150;
-  int weight = 75;
-  int age = 18;
+  int height = 169;
+  int weight = 69;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-      ),
+//      appBar: AppBar(
+//        title: Text('BMI CALCULATOR'),
+//      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(height: 20.0),
           Expanded(
             child: Row(children: [
               Expanded(

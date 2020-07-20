@@ -14,13 +14,14 @@ class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI calculator'),
-      ),
+//      appBar: AppBar(
+//        title: Text('BMI calculator'),
+//      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(height: 20.0),
           Expanded(
             child: Container(
               margin: EdgeInsets.all(15.0),
